@@ -56,7 +56,7 @@ export default class AgendController {
             const response = await axios.get('http://localhost:3000/agendamentos', {
                 params: {
                     _sort: 'agendData', // Ordena por agendData
-                    _order: 'asc',     // Ordenação ascendente
+                    _order: 'asc',     // Ordem crescente
                 },
             });
 
@@ -64,6 +64,28 @@ export default class AgendController {
 
         } catch (error) {
             return res.status(500).json({ error: 'Erro ao buscar agendamentos' });
+        }
+    }
+
+    async update(req, res) {
+        try {
+            const { id } = req.params;
+            const { status } = req.body;
+
+            console.log('Dados recebidos:', { id, status });
+
+            const response = await axios.patch(`http://localhost:3000/agendamentos/${id}`, 
+                { status: status });
+
+            console.log('Resposta do json-server:', response.data);
+
+            if (response.status === 200) {
+                res.status(200).send("Agendamento atualizado com sucesso!");
+            } else {
+                res.status(response.status).send("Erro ao atualizar o agendamento");
+            }
+        } catch (error) {
+            return res.status(500).send("Não foi possível realizar a atualização: " + error.message);
         }
     }
 }
