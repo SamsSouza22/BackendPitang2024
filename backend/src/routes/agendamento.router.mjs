@@ -5,7 +5,7 @@ const routes = Router();
 const agendController = new AgendController();
 
 routes.get('/api/agendamentos', (req, res) => {
-    angendController.index(req, res);
+    agendController.index(req, res);
 });
 
 routes.post('/api/agendamentos', (req, res) => {
