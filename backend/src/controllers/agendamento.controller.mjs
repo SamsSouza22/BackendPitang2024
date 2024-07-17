@@ -12,6 +12,7 @@ const agendSchema = z.object({
 
 export default class AgendController {
     async store(req, res) {
+        try {
             const agendamento = req.body;
             const { success, data, error } = agendSchema.safeParse({
                 nome: agendamento.nome,
@@ -39,5 +40,14 @@ export default class AgendController {
                 agendData: adjustedAgendData,
                 status: agendamento.status,
             };
+            
+            // Armazenando no JSON Server
+            const response = await axios.post('http://localhost:3000/agendamentos', agendamentoData);
+
+            return res.status(201).json("Agendamento Salvo");
+
+        } catch (error) {
+            return res.status(500).json({ error: 'Erro ao salvar agendamento' });
+        }
     }
 }
