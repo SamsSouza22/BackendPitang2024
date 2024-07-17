@@ -31,11 +31,22 @@ export default class AgendController {
 
             const adjustedAgendData = novoAgendData.toISOString();
 
+            // Verificando se já existem dois agendamentos para o mesmo horário
+            const agendamentosExistentes = await axios.get('http://localhost:3000/agendamentos', {
+                params: {
+                    agendData: adjustedAgendData
+                }
+            });
+
+            if (agendamentosExistentes.data.length >= 2) {
+                return res.status(400).json({ error: 'Já existem dois agendamentos para esse horário' });
+            }
             // Criando id único aleatório
             const [id] = crypto.randomUUID().split('-');
 
             const agendamentoData = {
                 id: id,
+                nome: agendamento.nome,
                 nascData: formattedNascData,
                 agendData: adjustedAgendData,
                 status: agendamento.status,
@@ -72,17 +83,13 @@ export default class AgendController {
             const { id } = req.params;
             const { status } = req.body;
 
-            console.log('Dados recebidos:', { id, status });
-
-            const response = await axios.patch(`http://localhost:3000/agendamentos/${id}`, 
+            const response = await axios.patch(`http://localhost:3000/agendamentos/${id}`,
                 { status: status });
 
-            console.log('Resposta do json-server:', response.data);
-
             if (response.status === 200) {
-                res.status(200).send("Agendamento atualizado com sucesso!");
+                return res.status(200).send("Agendamento atualizado com sucesso!");
             } else {
-                res.status(response.status).send("Erro ao atualizar o agendamento");
+                return res.status(response.status).send("Erro ao atualizar o agendamento");
             }
         } catch (error) {
             return res.status(500).send("Não foi possível realizar a atualização: " + error.message);
