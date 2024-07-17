@@ -1,3 +1,46 @@
 {
-  "agendamentos": []
+  "agendamentos": [
+    {
+      "id": "063c",
+      "nome": "Lais",
+      "nascData": "2024-07-16",
+      "agendData": "2024-07-17T08:00:00.000Z",
+      "status": "Pendente"
+    },
+    {
+      "id": "064d",
+      "nome": "Carlos",
+      "nascData": "1990-05-12",
+      "agendData": "2024-07-17T07:00:00.000Z",
+      "status": "Pendente"
+    },
+    {
+      "id": "065e",
+      "nome": "Maria",
+      "nascData": "1985-11-23",
+      "agendData": "2024-07-17T08:00:00.000Z",
+      "status": "Realizado"
+    },
+    {
+      "id": "066f",
+      "nome": "João",
+      "nascData": "1978-02-14",
+      "agendData": "2024-07-18T12:00:00.000Z",
+      "status": "Pendente"
+    },
+    {
+      "id": "067g",
+      "nome": "Ana",
+      "nascData": "1995-09-30",
+      "agendData": "2024-07-18T10:00:00.000Z",
+      "status": "Cancelado"
+    },
+    {
+      "id": "068h",
+      "nome": "Pedro",
+      "nascData": "2001-01-01",
+      "agendData": "2024-07-19T11:00:00.000Z",
+      "status": "Pendente"
+    }
+  ]
 }

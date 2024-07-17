@@ -40,7 +40,7 @@ export default class AgendController {
                 agendData: adjustedAgendData,
                 status: agendamento.status,
             };
-            
+
             // Armazenando no JSON Server
             const response = await axios.post('http://localhost:3000/agendamentos', agendamentoData);
 
@@ -48,6 +48,22 @@ export default class AgendController {
 
         } catch (error) {
             return res.status(500).json({ error: 'Erro ao salvar agendamento' });
+        }
+    }
+
+    async index(req, res) {
+        try {
+            const response = await axios.get('http://localhost:3000/agendamentos', {
+                params: {
+                    _sort: 'agendData', // Ordena por agendData
+                    _order: 'asc',     // Ordenação ascendente
+                },
+            });
+
+            return res.status(200).send(response.data);
+
+        } catch (error) {
+            return res.status(500).json({ error: 'Erro ao buscar agendamentos' });
         }
     }
 }
