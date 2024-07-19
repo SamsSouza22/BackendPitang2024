@@ -2,12 +2,12 @@
 Este repositório contém o backend de uma aplicação de agendamento de vacinas. Ele gerencia e armazena dados sobre agendamentos, incluindo informações como nome do agendado, data de nascimento, data e horário do agendamento, e status do atendimento.
 
 ## Índice
-* [Funcionalidades](https://github.com/SamsSouza22/BackendPitang2024#Funcionalidades)
-* [Tecnologias Utilizadas](https://github.com/SamsSouza22/BackendPitang2024#tecnologias-utilizadas)
-* [Instalação](https://github.com/SamsSouza22/BackendPitang2024#instalacao)
-* [Estrutura do Projeto](https://github.com/SamsSouza22/BackendPitang2024#estrutura-do-projeto)
-* [Rotas da API](https://github.com/SamsSouza22/BackendPitang2024#rotas-da-api)
-* [Licença](https://github.com/SamsSouza22/BackendPitang2024#licenca)
+* [Funcionalidades](#funcionalidades)
+* [Tecnologias Utilizadas](#tecnologias-utilizadas)
+* [Instalação](#instalação)
+* [Estrutura do Projeto](#estrutura-do-projeto)
+* [Rotas da API](#rotas-da-api)
+* [Licença](#licença)
 
 ## Funcionalidades
 * Listagem de Agendamentos: Retorna todos os agendamentos, ordenados por data e horário do agendamento.
